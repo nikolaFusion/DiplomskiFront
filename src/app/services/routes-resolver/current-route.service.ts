@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { CommonComponent } from '../models/base/common.component';
+import { CommonComponent } from '../../models/base/common.component';
 
 @Injectable({
   providedIn: 'root',

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonComponent } from './models/base/common.component';
 import { AuthService } from './services/auth.service';
-import { CurrentRouteService } from './services/current-route.service';
+import { CurrentRouteService } from './services/routes-resolver/current-route.service';
 
 @Component({
   selector: 'app-root',
