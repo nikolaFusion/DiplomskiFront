@@ -1,3 +1,4 @@
-<p>
-  anonymous-parent works!
-</p>
+<app-anonymous-header></app-anonymous-header>
+<div class="app">
+  <router-outlet (activate)="childActivated($event)"></router-outlet>
+</div>

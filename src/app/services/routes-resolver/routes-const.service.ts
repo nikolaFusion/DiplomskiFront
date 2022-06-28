@@ -9,7 +9,7 @@ export class ApplicationsRoutes {
     return this.Home;
   }
 
-  public static readonly Login = 'login';
+  public static readonly HomeFinding = 'home-finding';
   get Login(): string {
     return this.Login;
   }

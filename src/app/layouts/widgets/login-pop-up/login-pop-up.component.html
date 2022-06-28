@@ -1,0 +1,23 @@
+<div class="title">Log in</div>
+
+<div class="log-in-content">
+  <div class="input-title">Username</div>
+  <input appearance="fill" />
+
+  <div class="input-title">Password</div>
+  <input appearance="fill" />
+</div>
+
+<div class="forget-password">Forget password?</div>
+<button mat-raised-button class="log-in-button" (click)="Login()">
+  Log in
+</button>
+<div class="footer-text">
+  <div>If you don't have profile,</div>
+  <div>
+    you can to
+    <a (click)="OpenRegistrationPopUp()" class="register-link" mat-dialog-close
+      >register</a
+    >
+  </div>
+</div>

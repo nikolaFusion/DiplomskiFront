@@ -1,0 +1,38 @@
+@import "/src/assets/styles/variables";
+
+:host {
+    background: transparent;
+    position: fixed;
+    top: 0;
+    width: 70%;
+    height: 50px;
+    display: flex;
+    // flex-direction: row;
+}
+
+.title {
+    width: 100%;
+    height: 100%;
+    font-size: 40px;
+    color: $green;
+    font-weight: bold;
+
+    p {
+        padding-top: 20px;
+    }
+}
+
+button {
+    margin-top: auto;
+    margin-bottom: auto;
+    width: 120px;
+    background-color: transparent;
+    color: $green;
+    height: 70%;
+    font-size: 20px;
+}
+
+button:hover {
+    background-color: $green;
+    color: $white;
+}
