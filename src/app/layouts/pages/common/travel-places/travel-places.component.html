@@ -1,3 +1,7 @@
-<p>
-  travel-places works!
-</p>
+<div *ngFor="let places of travelPlacesList">
+  <div class="card">
+    <div>{{ places.name }}</div>
+    <div>{{ places.country }}</div>
+    <img src="{{ places.imageUrl }}" />
+  </div>
+</div>

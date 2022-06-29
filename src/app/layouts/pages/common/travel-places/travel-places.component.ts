@@ -15,7 +15,6 @@ export class TravelPlacesComponent implements OnInit {
   ngOnInit() {
     this.travelPlaceApiService.GetAll().subscribe((d) => {
       this.travelPlacesList = d;
-      console.log(d);
     });
   }
 }
