@@ -1,3 +1,4 @@
+import { TravelPlacesComponent } from './layouts/pages/common/travel-places/travel-places.component';
 import { HomeFindingComponent } from './layouts/pages/common/home-finding/home-finding.component';
 import { AnonymousHeaderComponent } from './layouts/widgets/anonymous-header/anonymous-header.component';
 import { AuthorizedPerentComponent } from './layouts/pages/authorized/authorized-perent/authorized-perent.component';
@@ -26,6 +27,10 @@ const routes: Routes = [
       {
         path: `${ApplicationsRoutes.HomeFinding}`,
         component: HomeFindingComponent,
+      },
+      {
+        path: `${ApplicationsRoutes.TravelPlaces}`,
+        component: TravelPlacesComponent,
       },
     ],
   },

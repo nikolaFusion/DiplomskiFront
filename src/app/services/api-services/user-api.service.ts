@@ -8,21 +8,18 @@ import { RegistrationModel } from 'src/app/models/registration-model';
   providedIn: 'root',
 })
 export class UserApiService {
-  baseUrl = 'https://localhost:7116';
+  baseUrl = 'https://localhost:7116/user';
   constructor(private http: HttpClient) {}
 
   Registration(newUser: RegistrationModel): Observable<boolean> {
-    return this.http.post<boolean>(
-      `${this.baseUrl}/user/registration`,
-      newUser
-    );
+    return this.http.post<boolean>(`${this.baseUrl}/registration`, newUser);
   }
 
   public Login(user: LoginModel): Observable<string> {
-    return this.http.post<string>(`${this.baseUrl}/user/login`, user);
+    return this.http.post<string>(`${this.baseUrl}/login`, user);
   }
 
   public GetAll() {
-    return this.http.get<string>(`${this.baseUrl}/user/get-all`);
+    return this.http.get<string>(`${this.baseUrl}/get-all`);
   }
 }

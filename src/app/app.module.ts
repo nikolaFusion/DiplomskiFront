@@ -1,3 +1,4 @@
+import { TravelPlacesComponent } from './layouts/pages/common/travel-places/travel-places.component';
 import { HttpClientModule } from '@angular/common/http';
 import { RegistrationPopUpComponent } from './layouts/widgets/registration-pop-up/registration-pop-up.component';
 import { LoginPopUpComponent } from './layouts/widgets/login-pop-up/login-pop-up.component';
@@ -32,6 +33,7 @@ import { FormsModule } from '@angular/forms';
     AnonymousParentComponent,
     LoginPopUpComponent,
     RegistrationPopUpComponent,
+    TravelPlacesComponent,
   ],
   imports: [
     BrowserModule,
