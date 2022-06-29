@@ -1,3 +1,44 @@
-<p>
-  registration-pop-up works!
-</p>
+<div class="title">Registration</div>
+<div class="registration-content">
+  <div class="inline-content">
+    <div>
+      <div class="input-title">Firstname</div>
+      <input appereance="fill" [(ngModel)]="registrationUser.firstName" />
+    </div>
+    <div>
+      <div class="input-title">Lastname</div>
+      <input appereance="fill" [(ngModel)]="registrationUser.lastName" />
+    </div>
+  </div>
+  <div class="input-title">Email</div>
+  <input
+    appereance="fill"
+    class="email-content"
+    type="email"
+    [(ngModel)]="registrationUser.username"
+  />
+  <div class="inline-content">
+    <div>
+      <div class="input-title">Password</div>
+      <input
+        appereance="fill"
+        type="password"
+        [(ngModel)]="registrationUser.password"
+      />
+    </div>
+    <div>
+      <div class="input-title">Age</div>
+      <input
+        appereance="fill"
+        type="number"
+        max="99"
+        min="18"
+        [(ngModel)]="registrationUser.age"
+      />
+    </div>
+  </div>
+</div>
+<button mat-raised-button (click)="Registration()">Registration</button>
+<div class="footer-text">
+  <div>This is form for registration</div>
+</div>

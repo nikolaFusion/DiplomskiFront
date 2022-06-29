@@ -1,3 +1,4 @@
+import { LoginModel } from './../../../models/login-model';
 import { UserApiService } from './../../../services/api-services/user-api.service';
 import { MatDialog } from '@angular/material/dialog';
 import { Component, OnInit } from '@angular/core';
@@ -9,6 +10,8 @@ import { RegistrationPopUpComponent } from '../registration-pop-up/registration-
   styleUrls: ['./login-pop-up.component.scss'],
 })
 export class LoginPopUpComponent implements OnInit {
+  loginUser: LoginModel = new LoginModel('', '');
+
   constructor(
     public dialog: MatDialog,
     public userApiService: UserApiService
@@ -24,7 +27,7 @@ export class LoginPopUpComponent implements OnInit {
   }
 
   public Login(): void {
-    this.userApiService.Login().subscribe((d) => {
+    this.userApiService.Login(this.loginUser).subscribe((d) => {
       console.log(d);
     });
   }
