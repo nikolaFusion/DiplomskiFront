@@ -1,0 +1,43 @@
+<div class="title-travel-finder">You are ready for the best tour ever</div>
+<div class="sub-title-travel-finder">
+  Find for your best tour below, you just need to choose the places you would
+  like to visit, as well as the time of your trip, and we will find you the best
+  possible arrangement.
+</div>
+<div>Choose travel places</div>
+
+<div class="travel-places">
+  <mat-form-field appearance="outline">
+    <mat-label>Choose place</mat-label>
+    <mat-select [(ngModel)]="selectedPlace">
+      <mat-option *ngFor="let place of travelPlaces" [value]="place">
+        {{ place.name }}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+  <button mat-raised-button (click)="ChoiseTravelPlace()">Choose</button>
+</div>
+<mat-form-field appearance="outline" class="date-picker">
+  <mat-label>Enter a date range</mat-label>
+  <mat-date-range-input [rangePicker]="picker">
+    <input matStartDate placeholder="Start date" readonly />
+    <input matEndDate placeholder="End date" readonly />
+  </mat-date-range-input>
+  <mat-hint>MM/DD/YYYY – MM/DD/YYYY</mat-hint>
+  <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+  <mat-date-range-picker #picker></mat-date-range-picker>
+</mat-form-field>
+
+<mat-form-field appearance="outline">
+  <mat-label>Choose number of people</mat-label>
+  <mat-select>
+    <mat-option
+      *ngFor="let number of [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]"
+      [value]="number"
+    >
+      {{ number }}
+    </mat-option>
+  </mat-select>
+</mat-form-field>
+
+<button mat-raised-button class="check-a-button">Chack availability</button>

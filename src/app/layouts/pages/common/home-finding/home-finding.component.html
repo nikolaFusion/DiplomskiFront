@@ -1,7 +1,30 @@
 <div class="login-wrapper">
   <div class="login-page-container">
     <div class="login-container">
-      <div class="login-container-content"></div>
+      <app-travel-finder
+        (addedTravelPlace)="addTravelPlace($event)"
+      ></app-travel-finder>
+
+      <div
+        *ngIf="travelPlaceChoiseList.length != 0"
+        class="selected-places-container"
+      >
+        <div class="seleced-places-title">Selected Places</div>
+        <div
+          *ngFor="let selectedTravelPlace of travelPlaceChoiseList"
+          class="selected-places-card"
+        >
+          <img src="{{ selectedTravelPlace.imageUrl }}" />
+          <div class="name-country">
+            <div class="name">
+              {{ selectedTravelPlace.name }}
+            </div>
+            <div class="country">
+              {{ selectedTravelPlace.country }}
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </div>

@@ -3,21 +3,21 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 import { DebugElement } from '@angular/core';
 
-import { AuthorizedPerentComponent } from './authorized-perent.component';
+import { TravelFinderComponent } from './travel-finder.component';
 
-describe('AuthorizedPerentComponent', () => {
-  let component: AuthorizedPerentComponent;
-  let fixture: ComponentFixture<AuthorizedPerentComponent>;
+describe('TravelFinderComponent', () => {
+  let component: TravelFinderComponent;
+  let fixture: ComponentFixture<TravelFinderComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ AuthorizedPerentComponent ]
+      declarations: [ TravelFinderComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(AuthorizedPerentComponent);
+    fixture = TestBed.createComponent(TravelFinderComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
