@@ -1,3 +1,4 @@
+import { TravelFindModel } from './../../../models/travel-find-model';
 import { TravelPlaceApiService } from './../../../services/api-services/travel-place-api.service';
 import {
   Component,
@@ -21,6 +22,7 @@ export class TravelFinderComponent implements OnInit {
   @ViewChild('matEndDate') matEndDate: ElementRef;
 
   @Output() addedTravelPlace = new EventEmitter<TravelPlaceModel>();
+  @Output() checkAval = new EventEmitter<TravelFindModel>();
 
   constructor(private travelPlacesApiService: TravelPlaceApiService) {}
 
@@ -36,5 +38,10 @@ export class TravelFinderComponent implements OnInit {
     }
 
     this.addedTravelPlace.emit(this.selectedPlace);
+  }
+
+  public CheckAvailability(): void {
+    var model = new TravelFindModel(null, new Date(), new Date(), 2);
+    this.checkAval.emit(model);
   }
 }
