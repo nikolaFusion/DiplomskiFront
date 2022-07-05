@@ -55,9 +55,24 @@ app-travel-finder {
 
     .selected-places-card {
         display: flex;
-        width: 400px;
+        width: 450px;
         height: 100px;
         background-color: $white;
+
+        mat-icon {
+            cursor: pointer;
+            display: flex;
+            margin: auto;
+            margin-right: 0;
+            color: $orange;
+            font-weight: bold;
+        }
+
+        mat-icon:hover {
+            color: $white;
+            background-color: $orange;
+            border-radius: 100%;
+        }
 
         img {
             border-radius: 10px;

@@ -22,23 +22,18 @@ export class HomeFindingComponent implements OnInit {
   }
 
   public CheckAvailability(event: TravelFindModel): void {
-    event.listOfPlaces = this.travelPlaceChoiseList;
-
-    let li = new Array<TravelPlaceModel>();
-    li.push(new TravelPlaceModel('', '', '', '', 4));
-    li.push(new TravelPlaceModel('', '', '', '', 3));
-    li.push(new TravelPlaceModel('', '', '', '', 5));
-    li.push(new TravelPlaceModel('', '', '', '', 21));
-
-    let event1 = new TravelFindModel(
-      li,
-      new Date(19, 9, 2022),
-      new Date(28, 9, 2022),
-      2
+    event.travelPlaceList = this.travelPlaceChoiseList.map(
+      (x) => x.travelPlaceID
     );
 
-    this.aranService.GetFindArr(event1).subscribe((d) => {
+    this.aranService.GetFindArr(event).subscribe((d) => {
       console.log(d);
+    });
+  }
+
+  public deleteItem(item: TravelPlaceModel) {
+    this.travelPlaceChoiseList.forEach((element, index) => {
+      if (element == item) this.travelPlaceChoiseList.splice(index, 1);
     });
   }
 }

@@ -18,8 +18,9 @@ import { TravelPlaceModel } from 'src/app/models/travel-place.model';
 export class TravelFinderComponent implements OnInit {
   selectedPlace: TravelPlaceModel;
   travelPlaces = new Array<TravelPlaceModel>();
-  @ViewChild('matStartDate') matStartDate: ElementRef;
-  @ViewChild('matEndDate') matEndDate: ElementRef;
+  numberOfPlace = 0;
+  endDate = new Date();
+  startDate = new Date();
 
   @Output() addedTravelPlace = new EventEmitter<TravelPlaceModel>();
   @Output() checkAval = new EventEmitter<TravelFindModel>();
@@ -41,7 +42,12 @@ export class TravelFinderComponent implements OnInit {
   }
 
   public CheckAvailability(): void {
-    var model = new TravelFindModel(null, new Date(), new Date(), 2);
+    var model = new TravelFindModel(
+      null,
+      this.startDate,
+      this.endDate,
+      this.numberOfPlace
+    );
     this.checkAval.emit(model);
   }
 }

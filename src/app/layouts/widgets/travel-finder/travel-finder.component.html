@@ -20,8 +20,13 @@
 <mat-form-field appearance="outline" class="date-picker">
   <mat-label>Enter a date range</mat-label>
   <mat-date-range-input [rangePicker]="picker">
-    <input matStartDate placeholder="Start date" readonly />
-    <input matEndDate placeholder="End date" readonly />
+    <input
+      matStartDate
+      [(ngModel)]="startDate"
+      placeholder="Start date"
+      readonly
+    />
+    <input matEndDate [(ngModel)]="endDate" placeholder="End date" readonly />
   </mat-date-range-input>
   <mat-hint>MM/DD/YYYY – MM/DD/YYYY</mat-hint>
   <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
@@ -30,7 +35,7 @@
 
 <mat-form-field appearance="outline">
   <mat-label>Choose number of people</mat-label>
-  <mat-select>
+  <mat-select [(ngModel)]="numberOfPlace">
     <mat-option
       *ngFor="let number of [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]"
       [value]="number"

@@ -1,18 +1,18 @@
 import { TravelPlaceModel } from './travel-place.model';
 
 export class TravelFindModel {
-  listOfPlaces?: Array<TravelPlaceModel>;
+  travelPlaceList?: Array<number>;
   startDate: Date;
   endDate: Date;
   numberOfPerson: number;
 
   constructor(
-    listOfPlaces: Array<TravelPlaceModel>,
+    travelPlaceList: Array<number>,
     startDate: Date,
     endDate: Date,
     numberOfPerson: number
   ) {
-    this.listOfPlaces = listOfPlaces;
+    this.travelPlaceList = travelPlaceList;
     this.startDate = startDate;
     this.endDate = endDate;
     this.numberOfPerson = numberOfPerson;
