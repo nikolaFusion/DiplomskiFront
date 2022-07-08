@@ -29,4 +29,28 @@
       </div>
     </div>
   </div>
+
+  <div *ngIf="findedArrangements" class="list-finding-arr">
+    <div
+      class="arrangements-group-content"
+      *ngFor="let arrangementGroup of findedArrangements"
+    >
+      <div
+        class="arrangemants-data-content"
+        *ngFor="let arrangements of arrangementGroup.arrangements"
+      >
+        <div>
+          {{ arrangements.travelPlace.name }} -
+          {{ arrangements.travelPlace.country }}
+        </div>
+        <div>{{ arrangements.price }}</div>
+        <div>{{ arrangements.travelCompany.name }}</div>
+        <div>
+          {{ arrangements.dateStart | date }} -
+          {{ arrangements.dateEnd | date }}
+        </div>
+      </div>
+      <div>{{ arrangementGroup.price }}</div>
+    </div>
+  </div>
 </div>

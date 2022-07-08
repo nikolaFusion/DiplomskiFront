@@ -2,6 +2,8 @@ import { ArangmantApiService } from './../../../../services/api-services/arangma
 import { TravelFindModel } from './../../../../models/travel-find-model';
 import { TravelPlaceModel } from 'src/app/models/travel-place.model';
 import { Component, OnInit } from '@angular/core';
+import { FindGroupArrModel } from 'src/app/models/find-group-arr';
+import { ArrangemantsModel } from 'src/app/models/arrangemants.model';
 
 @Component({
   selector: 'app-home-finding',
@@ -10,6 +12,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeFindingComponent implements OnInit {
   travelPlaceChoiseList = new Array<TravelPlaceModel>();
+  findedArrangements: Array<FindGroupArrModel>;
   constructor(private aranService: ArangmantApiService) {}
 
   ngOnInit() {}
@@ -27,7 +30,8 @@ export class HomeFindingComponent implements OnInit {
     );
 
     this.aranService.GetFindArr(event).subscribe((d) => {
-      console.log(d);
+      this.findedArrangements = d;
+      console.log(this.findedArrangements);
     });
   }
 
