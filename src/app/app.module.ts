@@ -1,6 +1,6 @@
 import { TravelFinderComponent } from './layouts/widgets/travel-finder/travel-finder.component';
 import { TravelPlacesComponent } from './layouts/pages/common/travel-places/travel-places.component';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { RegistrationPopUpComponent } from './layouts/widgets/registration-pop-up/registration-pop-up.component';
 import { LoginPopUpComponent } from './layouts/widgets/login-pop-up/login-pop-up.component';
 import { HomeFindingComponent } from './layouts/pages/common/home-finding/home-finding.component';
@@ -21,6 +21,7 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
 import { MatIconModule } from '@angular/material/icon';
+import { HttpInterceptorService } from './services/api-services/http-interceptor.service';
 @NgModule({
   declarations: [
     AppComponent,
@@ -49,7 +50,13 @@ import { MatIconModule } from '@angular/material/icon';
     MatNativeDateModule,
     MatIconModule,
   ],
-  providers: [],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: HttpInterceptorService,
+      multi: true,
+    },
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

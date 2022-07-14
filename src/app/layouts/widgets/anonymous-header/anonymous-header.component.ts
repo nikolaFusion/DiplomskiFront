@@ -1,7 +1,12 @@
+import { ApplicationsRoutes } from './../../../services/routes-resolver/routes-const.service';
+import { map, pipe } from 'rxjs';
 import { RegistrationPopUpComponent } from './../registration-pop-up/registration-pop-up.component';
 import { LoginPopUpComponent } from './../login-pop-up/login-pop-up.component';
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
+import { AuthService } from 'src/app/services/auth.service';
+import { UserApiService } from 'src/app/services/api-services/user-api.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-anonymous-header',
@@ -9,15 +14,38 @@ import { MatDialog } from '@angular/material/dialog';
   styleUrls: ['./anonymous-header.component.scss'],
 })
 export class AnonymousHeaderComponent implements OnInit {
-  constructor(public dialog: MatDialog) {}
+  autenticated = false;
+  name: string;
+  constructor(
+    public dialog: MatDialog,
+    public authService: AuthService,
+    public userApiService: UserApiService,
+    public router: Router
+  ) {}
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.authService.initialObservable.pipe(
+      map((d) => {
+        this.autenticated = d;
+        if (this.autenticated) {
+          this.userApiService.getLoggedInUser().subscribe((d) => {
+            this.name = d.firstName;
+          });
+        }
+      })
+    );
+  }
 
   public OpenLogInPopUp(): void {
     let dialogRef = this.dialog.open(LoginPopUpComponent, {
       height: '600px',
       width: '400px',
     });
+  }
+
+  public LogOut(): void {
+    this.authService.logout();
+    window.location.reload();
   }
 
   public OpenRegistrationPopUp(): void {

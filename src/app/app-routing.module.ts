@@ -1,3 +1,5 @@
+import { ArrangementComponent } from './layouts/pages/arrangement/arrangement.component';
+import { AuthGuard } from './guards/auth.guard';
 import { TravelPlacesComponent } from './layouts/pages/common/travel-places/travel-places.component';
 import { HomeFindingComponent } from './layouts/pages/common/home-finding/home-finding.component';
 import { HomeComponent } from './layouts/pages/common/home/home.component';
@@ -10,6 +12,7 @@ const routes: Routes = [
   {
     path: '',
     component: AnonymousParentComponent,
+
     children: [
       {
         path: `${ApplicationsRoutes.HomeFinding}`,
@@ -19,7 +22,22 @@ const routes: Routes = [
         path: `${ApplicationsRoutes.TravelPlaces}`,
         component: TravelPlacesComponent,
       },
+      {
+        path: `${ApplicationsRoutes.Arrangement}/:travelPlaceId`,
+        component: ArrangementComponent,
+      },
+      {
+        path: '**',
+        redirectTo: ApplicationsRoutes.HomeFinding,
+        pathMatch: 'full',
+      },
     ],
+  },
+
+  {
+    path: '**',
+    redirectTo: ApplicationsRoutes.HomeFinding,
+    pathMatch: 'full',
   },
 ];
 

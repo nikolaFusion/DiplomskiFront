@@ -28,7 +28,11 @@ export class LoginPopUpComponent implements OnInit {
 
   public Login(): void {
     this.userApiService.Login(this.loginUser).subscribe((d) => {
-      console.log(d);
+      localStorage.setItem('token', d.jwtToken);
+      if (d != null) {
+        this.dialog.closeAll();
+        window.location.reload();
+      }
     });
   }
 }

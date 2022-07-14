@@ -1,3 +1,12 @@
 <div class="title"><p>IN THE EARTH'S NATURE</p></div>
-<button mat-button (click)="OpenLogInPopUp()">Log in</button>
-<button mat-button (click)="OpenRegistrationPopUp()">Register</button>
+
+<button mat-button routerLink="/places">Places</button>
+<button mat-button *ngIf="autenticated" (click)="LogOut()">Log out</button>
+
+<button mat-button *ngIf="!autenticated" (click)="OpenRegistrationPopUp()">
+  Register
+</button>
+<button mat-button *ngIf="!autenticated" (click)="OpenLogInPopUp()">
+  Log in
+</button>
+<!-- <div class="username" mat-button *ngIf="autenticated">{{ name }}</div> -->

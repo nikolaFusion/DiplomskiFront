@@ -10,7 +10,13 @@ export class TravelPlaceApiService {
   baseUrl = 'https://localhost:7116/travel-places';
   constructor(private http: HttpClient) {}
 
-  public GetAll(): Observable<Array<TravelPlaceModel>> {
+  public GetAll() {
     return this.http.get<Array<TravelPlaceModel>>(`${this.baseUrl}`);
+  }
+
+  GetFindPlaces(searchValue: string): Observable<TravelPlaceModel[]> {
+    return this.http.get<Array<TravelPlaceModel>>(
+      `${this.baseUrl}/find-place/${searchValue}`
+    );
   }
 }

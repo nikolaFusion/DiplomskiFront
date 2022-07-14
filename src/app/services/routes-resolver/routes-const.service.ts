@@ -18,4 +18,9 @@ export class ApplicationsRoutes {
   get TravelPlaces(): string {
     return this.TravelPlaces;
   }
+
+  public static readonly Arrangement = 'arrangement';
+  get Arrangement(): string {
+    return this.Arrangement;
+  }
 }
