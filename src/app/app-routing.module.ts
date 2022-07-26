@@ -1,3 +1,4 @@
+import { TravelPlaceInfoComponent } from './layouts/pages/common/travel-place-info/travel-place-info.component';
 import { ArrangementComponent } from './layouts/pages/arrangement/arrangement.component';
 import { AuthGuard } from './guards/auth.guard';
 import { TravelPlacesComponent } from './layouts/pages/common/travel-places/travel-places.component';
@@ -21,6 +22,10 @@ const routes: Routes = [
       {
         path: `${ApplicationsRoutes.TravelPlaces}`,
         component: TravelPlacesComponent,
+      },
+      {
+        path: `${ApplicationsRoutes.TravelPlacesInfo}/:id`,
+        component: TravelPlaceInfoComponent,
       },
       {
         path: `${ApplicationsRoutes.Arrangement}/:travelPlaceId`,

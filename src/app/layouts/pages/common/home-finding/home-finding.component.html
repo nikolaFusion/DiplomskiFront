@@ -53,4 +53,19 @@
       <div>{{ arrangementGroup.price }}</div>
     </div>
   </div>
+
+  <div class="travel-place-container">
+    <div
+      class="card"
+      *ngFor="let place of travelPlacePartList; let i = index"
+      routerLink="/travel-place-info/{{ i + 1 + randomNum }}"
+    >
+      <div class="image-side">
+        <img src="{{ place.imageUrl }}" />
+        <div class="title" title="{{ place.name }}">{{ place.name }}</div>
+        <div class="subtitle">{{ place.country }}</div>
+        <div class="description">{{ place.description }}</div>
+      </div>
+    </div>
+  </div>
 </div>

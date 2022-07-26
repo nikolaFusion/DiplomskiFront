@@ -1,3 +1,4 @@
+import { TravelPlaceInfoComponent } from './../../layouts/pages/common/travel-place-info/travel-place-info.component';
 import { Injectable } from '@angular/core';
 
 @Injectable({
@@ -22,5 +23,10 @@ export class ApplicationsRoutes {
   public static readonly Arrangement = 'arrangement';
   get Arrangement(): string {
     return this.Arrangement;
+  }
+
+  public static readonly TravelPlacesInfo = 'travel-place-info';
+  get TravelPlaceInfo(): string {
+    return this.TravelPlaceInfo;
   }
 }

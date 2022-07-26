@@ -1,6 +1,8 @@
 <div class="title"><p>IN THE EARTH'S NATURE</p></div>
 
 <button mat-button routerLink="/places">Places</button>
+<button mat-button routerLink="/home-finding">Home</button>
+
 <button mat-button *ngIf="autenticated" (click)="LogOut()">Log out</button>
 
 <button mat-button *ngIf="!autenticated" (click)="OpenRegistrationPopUp()">

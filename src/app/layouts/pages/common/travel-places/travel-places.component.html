@@ -1,16 +1,32 @@
 <div class="search-bar">
   <input placeholder="Search..." [(ngModel)]="searchValue" />
-  <mat-icon (click)="SearchTravelPlaces()">search</mat-icon>
+  <div class="button-div">
+    <mat-icon (click)="SearchTravelPlaces()">search</mat-icon>
+  </div>
 </div>
 
 <div class="cards">
-  <div class="card" *ngFor="let places of travelPlacesList">
-    <img src="{{ places.imageUrl }}" />
-    <div class="card-text-context">
-      <div class="card-place-name">{{ places.name }}</div>
-      <div class="card-place-description">{{ places.description }}</div>
-
-      <div class="card-place-country">{{ places.country }}</div>
+  <div
+    class="card"
+    *ngFor="let places of travelPlacePartList; let i = index"
+    routerLink="/travel-place-info/{{ i + 1 + 5 * page }}"
+  >
+    <div class="image-side">
+      <img class="image-card" src="{{ places.imageUrl }}" />
+      <div class="title">{{ places.name }}</div>
+      <div class="subtitle">{{ places.country }}</div>
+    </div>
+    <div class="description-side">
+      <div class="description" title="{{ places.description }}">
+        {{ places.description }}
+      </div>
     </div>
   </div>
+  <mat-paginator
+    [length]="numberOfPlaces"
+    [pageSize]="5"
+    aria-label="Select page"
+    (page)="OnPageChange($event)"
+  >
+  </mat-paginator>
 </div>

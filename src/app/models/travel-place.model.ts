@@ -6,11 +6,11 @@ export class TravelPlaceModel {
   description: string;
 
   constructor(
-    name: string,
-    country: string,
-    imageUrl: string,
-    description: string,
-    travelPlaceID: number
+    name?: string,
+    country?: string,
+    imageUrl?: string,
+    description?: string,
+    travelPlaceID?: number
   ) {
     this.name = name;
     this.country = country;

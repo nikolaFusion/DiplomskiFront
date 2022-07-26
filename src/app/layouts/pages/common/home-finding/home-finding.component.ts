@@ -1,3 +1,4 @@
+import { TravelPlaceApiService } from './../../../../services/api-services/travel-place-api.service';
 import { ArangmantApiService } from './../../../../services/api-services/arangmant-api.service';
 import { TravelFindModel } from './../../../../models/travel-find-model';
 import { TravelPlaceModel } from 'src/app/models/travel-place.model';
@@ -11,11 +12,29 @@ import { ArrangemantsModel } from 'src/app/models/arrangemants.model';
   styleUrls: ['./home-finding.component.scss'],
 })
 export class HomeFindingComponent implements OnInit {
+  travelPlacesList = new Array<TravelPlaceModel>();
   travelPlaceChoiseList = new Array<TravelPlaceModel>();
   findedArrangements: Array<FindGroupArrModel>;
-  constructor(private aranService: ArangmantApiService) {}
+  travelPlacePartList = new Array<TravelPlaceModel>();
+  randomNum: number;
+  constructor(
+    private aranService: ArangmantApiService,
+    private travelPlaceApiService: TravelPlaceApiService
+  ) {}
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.travelPlaceApiService.GetAll().subscribe((d) => {
+      this.travelPlacesList = d;
+      let random = Math.floor(
+        Math.random() * (this.travelPlacesList.length - 6)
+      );
+      this.randomNum = random;
+      this.travelPlacePartList = this.travelPlacesList.slice(
+        random,
+        random + 6
+      );
+    });
+  }
 
   public addTravelPlace(event: TravelPlaceModel): void {
     if (this.travelPlaceChoiseList.includes(event)) {

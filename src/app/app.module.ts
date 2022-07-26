@@ -22,6 +22,8 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
 import { MatIconModule } from '@angular/material/icon';
 import { HttpInterceptorService } from './services/api-services/http-interceptor.service';
+import { MatCardModule } from '@angular/material/card';
+import { MatPaginatorModule } from '@angular/material/paginator';
 @NgModule({
   declarations: [
     AppComponent,
@@ -49,6 +51,8 @@ import { HttpInterceptorService } from './services/api-services/http-interceptor
     MatDatepickerModule,
     MatNativeDateModule,
     MatIconModule,
+    MatCardModule,
+    MatPaginatorModule,
   ],
   providers: [
     {
