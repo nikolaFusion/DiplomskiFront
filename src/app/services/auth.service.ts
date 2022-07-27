@@ -73,7 +73,6 @@ export class AuthService {
     return this.userApiService.getLoggedInUser().pipe(
       map((x) => {
         this._userInfo = x;
-        console.log(x);
         return true;
       })
     );

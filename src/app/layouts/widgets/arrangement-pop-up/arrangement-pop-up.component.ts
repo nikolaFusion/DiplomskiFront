@@ -43,7 +43,9 @@ export class ArrangementPopUpComponent implements OnInit {
       // this.OpenLogInPopUp();
     }
 
-    this.placeService.SaveArrangement(this.data).subscribe();
+    this.placeService
+      .SaveArrangement(this.data)
+      .subscribe((x) => console.log(x));
 
     this.OpenInfoText();
   }

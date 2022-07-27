@@ -1,3 +1,5 @@
+import { UserApiService } from 'src/app/services/api-services/user-api.service';
+import { AuthService } from 'src/app/services/auth.service';
 import { ArrangementPopUpComponent } from './../../../widgets/arrangement-pop-up/arrangement-pop-up.component';
 import { TravelPlaceApiService } from './../../../../services/api-services/travel-place-api.service';
 import { ArangmantApiService } from './../../../../services/api-services/arangmant-api.service';
@@ -25,7 +27,8 @@ export class HomeFindingComponent implements OnInit {
   constructor(
     private aranService: ArangmantApiService,
     private travelPlaceApiService: TravelPlaceApiService,
-    public dialog: MatDialog
+    public dialog: MatDialog,
+    private userApiService: UserApiService
   ) {}
 
   ngOnInit() {
