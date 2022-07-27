@@ -5,11 +5,6 @@ import { Injectable } from '@angular/core';
   providedIn: 'root',
 })
 export class ApplicationsRoutes {
-  public static readonly Home = 'home';
-  get Home(): string {
-    return this.Home;
-  }
-
   public static readonly HomeFinding = 'home-finding';
   get Login(): string {
     return this.Login;

@@ -1,3 +1,6 @@
+import { ArrangementPopUpComponent } from './layouts/widgets/arrangement-pop-up/arrangement-pop-up.component';
+import { LoaderComponent } from './layouts/widgets/loader/loader.component';
+import { TravelPlaceInfoComponent } from './layouts/pages/common/travel-place-info/travel-place-info.component';
 import { TravelFinderComponent } from './layouts/widgets/travel-finder/travel-finder.component';
 import { TravelPlacesComponent } from './layouts/pages/common/travel-places/travel-places.component';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
@@ -5,10 +8,8 @@ import { RegistrationPopUpComponent } from './layouts/widgets/registration-pop-u
 import { LoginPopUpComponent } from './layouts/widgets/login-pop-up/login-pop-up.component';
 import { HomeFindingComponent } from './layouts/pages/common/home-finding/home-finding.component';
 import { AnonymousParentComponent } from './layouts/pages/anonymous/anonymous-parent/anonymous-parent.component';
-import { HomeComponent } from './layouts/pages/common/home/home.component';
 import { AnonymousHeaderComponent } from './layouts/widgets/anonymous-header/anonymous-header.component';
 import { NgModule } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -24,11 +25,14 @@ import { MatIconModule } from '@angular/material/icon';
 import { HttpInterceptorService } from './services/api-services/http-interceptor.service';
 import { MatCardModule } from '@angular/material/card';
 import { MatPaginatorModule } from '@angular/material/paginator';
+import { CommonModule } from '@angular/common';
+import { BrowserModule } from '@angular/platform-browser';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { InfoPopUpComponent } from './layouts/widgets/info-pop-up/info-pop-up.component';
 @NgModule({
   declarations: [
     AppComponent,
     AnonymousHeaderComponent,
-    HomeComponent,
     AnonymousHeaderComponent,
     HomeFindingComponent,
     AnonymousParentComponent,
@@ -36,6 +40,10 @@ import { MatPaginatorModule } from '@angular/material/paginator';
     RegistrationPopUpComponent,
     TravelPlacesComponent,
     TravelFinderComponent,
+    TravelPlaceInfoComponent,
+    LoaderComponent,
+    ArrangementPopUpComponent,
+    InfoPopUpComponent,
   ],
   imports: [
     BrowserModule,
@@ -53,6 +61,8 @@ import { MatPaginatorModule } from '@angular/material/paginator';
     MatIconModule,
     MatCardModule,
     MatPaginatorModule,
+    CommonModule,
+    MatProgressSpinnerModule,
   ],
   providers: [
     {

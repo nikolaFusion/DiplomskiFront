@@ -1,0 +1,41 @@
+@import "/src/assets/styles/variables";
+
+:host {
+    display: flex;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background-color: $black;
+    opacity: 0.8;
+    z-index: 9999;
+    top: 0;
+    left: 0;
+}
+
+.amf-spinner {
+    margin: auto;
+    display: inline-block;
+    width: 80px;
+    height: 80px;
+}
+
+.amf-spinner:after {
+    content: " ";
+    display: block;
+    width: 200px;
+    height: 200px;
+    margin: 8px;
+    border-radius: 50%;
+    border: 20px solid $countryTravelPlace;
+    border-color: $countryTravelPlace transparent;
+    animation: amf-spinner 1.2s linear infinite;
+}
+
+@keyframes amf-spinner {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}

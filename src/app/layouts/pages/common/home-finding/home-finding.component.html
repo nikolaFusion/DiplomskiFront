@@ -1,3 +1,5 @@
+<app-loader *ngIf="spinnerVisiable"></app-loader>
+
 <div class="login-wrapper">
   <div class="login-page-container">
     <div class="login-container">
@@ -30,28 +32,43 @@
     </div>
   </div>
 
-  <div *ngIf="findedArrangements" class="list-finding-arr">
+  <div *ngIf="numberOfFindArr > 0" class="list-finding-arr">
     <div
       class="arrangements-group-content"
+      (click)="OpenRegistrationPopUp(arrangementGroup)"
       *ngFor="let arrangementGroup of findedArrangements"
     >
-      <div
-        class="arrangemants-data-content"
-        *ngFor="let arrangements of arrangementGroup.arrangements"
-      >
-        <div>
-          {{ arrangements.travelPlace.name }} -
-          {{ arrangements.travelPlace.country }}
-        </div>
-        <div>{{ arrangements.price }}</div>
-        <div>{{ arrangements.travelCompany.name }}</div>
-        <div>
-          {{ arrangements.dateStart | date }} -
-          {{ arrangements.dateEnd | date }}
+      <div class="div-1">
+        <div
+          class="arrangemants-data-content"
+          *ngFor="
+            let arrangements of arrangementGroup.arrangements;
+            let i = index
+          "
+        >
+          <div class="div-2">
+            <div class="title">
+              {{ i + 1 }}. {{ arrangements.travelPlace.name }}
+            </div>
+            <div class="subtitle">
+              {{ arrangements.travelPlace.country }}
+              <div class="company-name">
+                {{ arrangements.travelCompany.name }}
+              </div>
+            </div>
+          </div>
+          <div class="date-arr">
+            {{ arrangements.dateStart | date }} -
+            {{ arrangements.dateEnd | date }}
+          </div>
         </div>
       </div>
-      <div>{{ arrangementGroup.price }}</div>
+      <div class="price">{{ arrangementGroup.price | number: "1.2-2" }} €</div>
     </div>
+  </div>
+
+  <div class="not-found-text" *ngIf="numberOfFindArr == 0 && nullList == true">
+    No arrangements were found for the given location
   </div>
 
   <div class="travel-place-container">

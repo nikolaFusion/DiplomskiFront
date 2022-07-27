@@ -13,6 +13,7 @@ import { PageEvent } from '@angular/material/paginator';
 export class TravelPlacesComponent implements OnInit {
   travelPlacesList = new Array<TravelPlaceModel>();
   searchValue: string;
+  spinnerVisiable = true;
   page = 1;
   numberOfPlaces: number;
   travelPlacePartList = new Array<TravelPlaceModel>();
@@ -27,6 +28,7 @@ export class TravelPlacesComponent implements OnInit {
       this.travelPlacesList = d;
       this.travelPlacePartList = this.travelPlacesList.slice(0, 5);
       this.numberOfPlaces = this.travelPlacesList.length;
+      this.spinnerVisiable = false;
     });
   }
 
@@ -35,6 +37,7 @@ export class TravelPlacesComponent implements OnInit {
       this.travelPlacesList = d;
       this.travelPlacePartList = this.travelPlacesList.slice(0, 5);
       this.numberOfPlaces = this.travelPlacesList.length;
+      this.spinnerVisiable = false;
     });
   }
 
@@ -44,6 +47,5 @@ export class TravelPlacesComponent implements OnInit {
       0 + this.page * 5,
       5 + this.page * 5
     );
-    console.log(this.page);
   }
 }

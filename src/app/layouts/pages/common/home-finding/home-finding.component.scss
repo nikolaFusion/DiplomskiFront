@@ -14,6 +14,7 @@
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-position: center;
+    margin-top: 20px;
 }
 
 .login-page-container {
@@ -90,6 +91,7 @@ app-travel-finder {
                 font-size: 25px;
                 font-weight: bold;
                 color: $darkcyan;
+                line-height: 1.2;
             }
 
             .country {
@@ -103,18 +105,45 @@ app-travel-finder {
 .list-finding-arr {
     margin-top: calc(100% - 150px - 510px - 300px);
     width: 100%;
-    height: 500px;
+    height: auto;
     background-color: $white;
 }
 
 .arrangemants-data-content {
-    display: flex;
     gap: 10px;
+    display: flex;
+    flex-direction: row;
+
+    padding: 10px;
+
+    .title {
+        font-size: 20px;
+        color: $countryTravelPlace;
+        font-weight: bold;
+    }
+    .subtitle {
+        font-size: 15px;
+        color: $countryRed;
+        margin-left: 10px;
+        display: flex;
+        font-weight: bold;
+    }
+    .company-name {
+        margin-left: 10px;
+        color: $countryRed;
+        font-weight: normal;
+    }
 }
 
 .arrangements-group-content {
+    cursor: pointer;
+    margin-left: 10%;
+    margin-right: 10%;
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
+    border: 1px solid $black;
+    margin-bottom: 30px;
+    cursor: pointer;
 }
 
 .travel-place-container {
@@ -129,6 +158,7 @@ app-travel-finder {
 .card {
     height: 300px;
     overflow: hidden;
+    cursor: pointer;
 
     img {
         width: 410px;
@@ -191,4 +221,40 @@ app-travel-finder {
         transition-delay: 0.5s;
         transform: translateY(-220px);
     }
+}
+
+.not-found-text {
+    margin-top: 350px;
+    color: $countryRed;
+    font-size: 40px;
+}
+
+.price {
+    padding: 30px;
+    margin: auto;
+    color: $blue;
+    font-size: 50px;
+    height: 100%;
+}
+
+.div-1 {
+    display: flex;
+    width: 700px;
+    flex-direction: column;
+    padding: 20px 50px;
+}
+
+.div-2 {
+    display: flex;
+    flex-direction: column;
+}
+
+.date-arr {
+    display: flex;
+    margin: auto 0 auto auto;
+    font-size: 18px;
+}
+
+.arrangemants-data-content:nth-child(2n-1) {
+    background-color: $addict-blue;
 }

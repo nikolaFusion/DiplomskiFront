@@ -40,6 +40,7 @@ export class AnonymousHeaderComponent implements OnInit {
     let dialogRef = this.dialog.open(LoginPopUpComponent, {
       height: '600px',
       width: '400px',
+      data: true,
     });
   }
 

@@ -1,3 +1,4 @@
+<app-loader *ngIf="spinnerVisiable"></app-loader>
 <div class="title">Log in</div>
 
 <div class="log-in-content">
@@ -5,7 +6,7 @@
   <input appearance="fill" [(ngModel)]="loginUser.username" />
 
   <div class="input-title">Password</div>
-  <input appearance="fill" [(ngModel)]="loginUser.password" />
+  <input appearance="fill" [(ngModel)]="loginUser.password" type="password" />
 </div>
 
 <div class="forget-password">Forget password?</div>

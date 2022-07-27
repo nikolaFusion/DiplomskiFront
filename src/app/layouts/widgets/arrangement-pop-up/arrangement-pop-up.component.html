@@ -1,15 +1,7 @@
 <app-loader *ngIf="spinnerVisiable"></app-loader>
 
-<img class="image-wrapper" src="{{ travelPlace.imageUrl }}" />
-<div class="page-wrapper">
-  <div class="image-text-content">
-    <div class="title">{{ travelPlace.name }}</div>
-    <div class="subtitle">{{ travelPlace.country }}</div>
-    <div class="description">{{ travelPlace.description }}</div>
-  </div>
-</div>
 <div class="arrangement-content">
-  <div class="card" *ngFor="let arrangement of arrangementList">
+  <div class="card" *ngFor="let arrangement of data.arrangements">
     <img src="{{ arrangement.travelCompany.imageUrl }}" />
     <div class="text-content">
       <div class="name-content-card">
@@ -39,4 +31,13 @@
 
     <div class="price">{{ arrangement.price | number: "1.2-2" }} €</div>
   </div>
+</div>
+
+<div class="price-reservation">
+  <div class="total-price">
+    Total price: {{ data.price | number: "1.2-2" }} €
+  </div>
+  <button mat-raised-button color="primary" (click)="Reserves()">
+    Reserves
+  </button>
 </div>

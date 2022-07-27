@@ -1,9 +1,7 @@
 import { TravelPlaceInfoComponent } from './layouts/pages/common/travel-place-info/travel-place-info.component';
-import { ArrangementComponent } from './layouts/pages/arrangement/arrangement.component';
 import { AuthGuard } from './guards/auth.guard';
 import { TravelPlacesComponent } from './layouts/pages/common/travel-places/travel-places.component';
 import { HomeFindingComponent } from './layouts/pages/common/home-finding/home-finding.component';
-import { HomeComponent } from './layouts/pages/common/home/home.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { ApplicationsRoutes } from './services/routes-resolver/routes-const.service';
@@ -26,10 +24,6 @@ const routes: Routes = [
       {
         path: `${ApplicationsRoutes.TravelPlacesInfo}/:id`,
         component: TravelPlaceInfoComponent,
-      },
-      {
-        path: `${ApplicationsRoutes.Arrangement}/:travelPlaceId`,
-        component: ArrangementComponent,
       },
       {
         path: '**',

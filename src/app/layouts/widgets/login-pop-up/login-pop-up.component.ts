@@ -1,7 +1,7 @@
 import { LoginModel } from './../../../models/login-model';
 import { UserApiService } from './../../../services/api-services/user-api.service';
-import { MatDialog } from '@angular/material/dialog';
-import { Component, OnInit } from '@angular/core';
+import { MatDialog, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { Component, Inject, OnInit } from '@angular/core';
 import { RegistrationPopUpComponent } from '../registration-pop-up/registration-pop-up.component';
 
 @Component({
@@ -11,8 +11,10 @@ import { RegistrationPopUpComponent } from '../registration-pop-up/registration-
 })
 export class LoginPopUpComponent implements OnInit {
   loginUser: LoginModel = new LoginModel('', '');
+  spinnerVisiable = false;
 
   constructor(
+    @Inject(MAT_DIALOG_DATA) public data: boolean,
     public dialog: MatDialog,
     public userApiService: UserApiService
   ) {}
@@ -27,11 +29,15 @@ export class LoginPopUpComponent implements OnInit {
   }
 
   public Login(): void {
+    this.spinnerVisiable = true;
     this.userApiService.Login(this.loginUser).subscribe((d) => {
       localStorage.setItem('token', d.jwtToken);
       if (d != null) {
         this.dialog.closeAll();
-        window.location.reload();
+        if (this.data) {
+          window.location.reload();
+        }
+        this.spinnerVisiable = false;
       }
     });
   }

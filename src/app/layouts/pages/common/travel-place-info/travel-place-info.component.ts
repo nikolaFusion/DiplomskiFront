@@ -20,6 +20,8 @@ export class TravelPlaceInfoComponent implements OnInit {
   id: string;
   travelPlace = new TravelPlaceModel();
   arrangementList = new Array<ArrangemantsModel>();
+  spinnerVisiable = true;
+
   constructor(
     private route: ActivatedRoute,
     private router: Router,
@@ -35,11 +37,12 @@ export class TravelPlaceInfoComponent implements OnInit {
 
     this.travelPlaceService.GetByID(this.id).subscribe((x) => {
       this.travelPlace = x;
+      this.spinnerVisiable = false;
     });
 
     this.travelPlaceService.GetArrangementByTPId(this.id).subscribe((x) => {
       this.arrangementList = x;
-      console.log(x);
+      this.spinnerVisiable = false;
     });
   }
 }

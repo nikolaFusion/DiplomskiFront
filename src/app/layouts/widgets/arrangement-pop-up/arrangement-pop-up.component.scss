@@ -1,0 +1,97 @@
+@import "/src/assets/styles/variables";
+
+:host {
+    height: 100%;
+    cursor: default;
+    display: flex;
+    flex-direction: column;
+}
+
+.name-content-card {
+    display: flex;
+    flex-direction: column;
+
+    .title {
+        font-size: 25px;
+        font-weight: bold;
+        color: $countryTravelPlace;
+        height: 25px;
+    }
+
+    .country {
+        font-size: 15px;
+        font-weight: bold;
+        color: $countryRed;
+    }
+}
+
+.card-footer {
+    margin-top: auto;
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    padding: 10px;
+    border-top: 1px solid $countryRed;
+    color: $countryTravelPlace;
+}
+
+.arrangement-content {
+    margin-left: 20px;
+    margin-right: 20px;
+    padding-top: 100px;
+    padding-bottom: 100px;
+
+    img {
+        width: 350px;
+        height: 250px;
+    }
+}
+
+.price {
+    padding: 30px;
+    margin: auto;
+    color: $blue;
+    font-size: 50px;
+    height: 100%;
+}
+
+.card {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    border: 1px solid $black;
+    margin-bottom: 30px;
+}
+
+.text-content {
+    margin-top: 30px;
+    display: flex;
+    flex-direction: column;
+    height: 250px;
+    width: 510px;
+}
+
+.price-reservation {
+    margin-bottom: 50px;
+    display: flex;
+    flex-direction: column;
+
+    .total-price {
+        display: flex;
+        margin: auto;
+        font-size: 40px;
+        margin-bottom: 30px;
+        font-weight: bold;
+        color: $countryRed;
+    }
+
+    button {
+        margin: auto;
+        background-color: $countryTravelPlace;
+        color: $white;
+        width: 400px;
+        margin-bottom: 50px;
+        font-size: 30px;
+        height: 50px;
+    }
+}

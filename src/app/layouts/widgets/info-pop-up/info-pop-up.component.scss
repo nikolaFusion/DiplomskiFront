@@ -1,0 +1,14 @@
+@import "/src/assets/styles/variables";
+
+.text {
+    text-align: center;
+    font-size: 30px;
+    color: $countryTravelPlace;
+    line-height: 1.5;
+    margin: auto;
+}
+
+.wrapper {
+    display: flex;
+    height: 100%;
+}

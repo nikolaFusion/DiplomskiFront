@@ -1,3 +1,4 @@
+import { ArrangementPopUpComponent } from './../../../widgets/arrangement-pop-up/arrangement-pop-up.component';
 import { TravelPlaceApiService } from './../../../../services/api-services/travel-place-api.service';
 import { ArangmantApiService } from './../../../../services/api-services/arangmant-api.service';
 import { TravelFindModel } from './../../../../models/travel-find-model';
@@ -5,6 +6,7 @@ import { TravelPlaceModel } from 'src/app/models/travel-place.model';
 import { Component, OnInit } from '@angular/core';
 import { FindGroupArrModel } from 'src/app/models/find-group-arr';
 import { ArrangemantsModel } from 'src/app/models/arrangemants.model';
+import { MatDialog } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-home-finding',
@@ -17,9 +19,13 @@ export class HomeFindingComponent implements OnInit {
   findedArrangements: Array<FindGroupArrModel>;
   travelPlacePartList = new Array<TravelPlaceModel>();
   randomNum: number;
+  numberOfFindArr = 0;
+  spinnerVisiable = true;
+  nullList = false;
   constructor(
     private aranService: ArangmantApiService,
-    private travelPlaceApiService: TravelPlaceApiService
+    private travelPlaceApiService: TravelPlaceApiService,
+    public dialog: MatDialog
   ) {}
 
   ngOnInit() {
@@ -33,6 +39,8 @@ export class HomeFindingComponent implements OnInit {
         random,
         random + 6
       );
+
+      this.spinnerVisiable = false;
     });
   }
 
@@ -50,13 +58,24 @@ export class HomeFindingComponent implements OnInit {
 
     this.aranService.GetFindArr(event).subscribe((d) => {
       this.findedArrangements = d;
-      console.log(this.findedArrangements);
+      this.numberOfFindArr = this.findedArrangements.length;
+      if (this.numberOfFindArr == 0) {
+        this.nullList = true;
+      }
     });
   }
 
   public deleteItem(item: TravelPlaceModel) {
     this.travelPlaceChoiseList.forEach((element, index) => {
       if (element == item) this.travelPlaceChoiseList.splice(index, 1);
+    });
+  }
+
+  public OpenRegistrationPopUp(arrGroup: FindGroupArrModel): void {
+    let dialogRef = this.dialog.open(ArrangementPopUpComponent, {
+      height: '800px',
+      width: '1400px',
+      data: arrGroup,
     });
   }
 }
