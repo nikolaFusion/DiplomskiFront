@@ -1,3 +1,4 @@
+import { MyArrangementsGroupComponent } from './layouts/pages/my-arrangements-group/my-arrangements-group.component';
 import { ArrangementPopUpComponent } from './layouts/widgets/arrangement-pop-up/arrangement-pop-up.component';
 import { LoaderComponent } from './layouts/widgets/loader/loader.component';
 import { TravelPlaceInfoComponent } from './layouts/pages/common/travel-place-info/travel-place-info.component';
@@ -44,6 +45,7 @@ import { InfoPopUpComponent } from './layouts/widgets/info-pop-up/info-pop-up.co
     LoaderComponent,
     ArrangementPopUpComponent,
     InfoPopUpComponent,
+    MyArrangementsGroupComponent,
   ],
   imports: [
     BrowserModule,

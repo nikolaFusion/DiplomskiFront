@@ -24,16 +24,22 @@ export class AnonymousHeaderComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    this.authService.initialObservable.pipe(
-      map((d) => {
-        this.autenticated = d;
-        if (this.autenticated) {
-          this.userApiService.getLoggedInUser().subscribe((d) => {
-            this.name = d.firstName;
-          });
-        }
-      })
-    );
+    this.userApiService.getLoggedInUser().subscribe((x) => {
+      this.name = x.firstName;
+      if (x) {
+        this.autenticated = true;
+      }
+    });
+    // this.authService.initialObservable.pipe(
+    //   map((d) => {
+    //     this.autenticated = d;
+    //     if (this.autenticated) {
+    //       this.userApiService.getLoggedInUser().subscribe((d) => {
+    //         this.name = d.firstName;
+    //       });
+    //     }
+    //   })
+    // );
   }
 
   public OpenLogInPopUp(): void {

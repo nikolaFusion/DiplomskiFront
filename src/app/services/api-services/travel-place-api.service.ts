@@ -1,3 +1,4 @@
+import { SaveModel } from './../../models/save.model';
 import { Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
@@ -18,7 +19,13 @@ export class TravelPlaceApiService {
     return this.http.get<Array<TravelPlaceModel>>(`${this.baseUrl}`);
   }
 
-  SaveArrangement(data: FindGroupArrModel): Observable<boolean> {
+  GetMyArrangements(): Observable<FindGroupArrModel[]> {
+    return this.http.get<Array<FindGroupArrModel>>(
+      `${this.baseUrlArrGroup}/my-arrangements`
+    );
+  }
+
+  SaveArrangement(data: SaveModel): Observable<boolean> {
     return this.http.post<boolean>(`${this.baseUrlArrGroup}/save`, data);
   }
 

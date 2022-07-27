@@ -1,5 +1,14 @@
 <div class="title"><p>IN THE EARTH'S NATURE</p></div>
 
+<button
+  class="my-arr-button"
+  mat-button
+  *ngIf="autenticated"
+  routerLink="/my-arangements"
+>
+  My arrangements
+</button>
+
 <button mat-button routerLink="/places">Places</button>
 <button mat-button routerLink="/home-finding">Home</button>
 
@@ -11,4 +20,3 @@
 <button mat-button *ngIf="!autenticated" (click)="OpenLogInPopUp()">
   Log in
 </button>
-<!-- <div class="username" mat-button *ngIf="autenticated">{{ name }}</div> -->

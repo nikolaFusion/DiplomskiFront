@@ -15,6 +15,11 @@ export class ApplicationsRoutes {
     return this.TravelPlaces;
   }
 
+  public static readonly MyArrangement = 'my-arangements';
+  get MyArrangement(): string {
+    return this.MyArrangement;
+  }
+
   public static readonly Arrangement = 'arrangement';
   get Arrangement(): string {
     return this.Arrangement;

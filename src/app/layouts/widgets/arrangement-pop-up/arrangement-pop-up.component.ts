@@ -6,6 +6,7 @@ import { MatDialog, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { FindGroupArrModel } from 'src/app/models/find-group-arr';
 import { LoginPopUpComponent } from '../login-pop-up/login-pop-up.component';
 import { InfoPopUpComponent } from '../info-pop-up/info-pop-up.component';
+import { SaveModel } from 'src/app/models/save.model';
 
 @Component({
   selector: 'app-arrangement-pop-up',
@@ -14,6 +15,7 @@ import { InfoPopUpComponent } from '../info-pop-up/info-pop-up.component';
 })
 export class ArrangementPopUpComponent implements OnInit {
   spinnerVisiable = false;
+  saveMod = new SaveModel();
   constructor(
     @Inject(MAT_DIALOG_DATA) public data: FindGroupArrModel,
     private authService: AuthService,
@@ -42,10 +44,13 @@ export class ArrangementPopUpComponent implements OnInit {
     if (!this.authService.isAuthorized()) {
       // this.OpenLogInPopUp();
     }
+    this.saveMod.IDs = new Array<number>();
+    this.saveMod.price = this.data.price;
+    this.data.arrangements.forEach((x) => {
+      this.saveMod.IDs.push(x.arrangementID);
+    });
 
-    this.placeService
-      .SaveArrangement(this.data)
-      .subscribe((x) => console.log(x));
+    this.placeService.SaveArrangement(this.saveMod).subscribe();
 
     this.OpenInfoText();
   }

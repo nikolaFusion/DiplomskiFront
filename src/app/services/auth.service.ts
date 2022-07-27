@@ -41,14 +41,19 @@ export class AuthService {
     if (localStorage.getItem('token')) {
       this.token = localStorage.getItem('token').toString();
     }
-    this.initialObservable = this.getInitialAuthObservable().pipe(
-      catchError((x) => {
-        return of(true);
-      }),
-      finalize(() => {
-        this.initialObservable = new BehaviorSubject<boolean>(true);
-      })
-    );
+
+    this.userApiService.getLoggedInUser().subscribe((x) => {
+      this._userInfo = x;
+    });
+
+    // this.initialObservable = this.getInitialAuthObservable().pipe(
+    //   catchError((x) => {
+    //     return of(true);
+    //   }),
+    //   finalize(() => {
+    //     this.initialObservable = new BehaviorSubject<boolean>(true);
+    //   })
+    // );
   }
 
   private getInitialAuthObservable(): Observable<boolean> {

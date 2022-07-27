@@ -29,7 +29,6 @@ export class LoginPopUpComponent implements OnInit {
   }
 
   public Login(): void {
-    this.spinnerVisiable = true;
     this.userApiService.Login(this.loginUser).subscribe((d) => {
       localStorage.setItem('token', d.jwtToken);
       if (d != null) {
@@ -37,7 +36,6 @@ export class LoginPopUpComponent implements OnInit {
         if (this.data) {
           window.location.reload();
         }
-        this.spinnerVisiable = false;
       }
     });
   }

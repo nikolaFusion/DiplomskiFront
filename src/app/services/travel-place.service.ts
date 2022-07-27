@@ -1,3 +1,4 @@
+import { SaveModel } from './../models/save.model';
 import { map, mergeMap } from 'rxjs/operators';
 import { TravelPlaceApiService } from './api-services/travel-place-api.service';
 import { Injectable } from '@angular/core';
@@ -16,8 +17,12 @@ export class TravelPlaceService {
     private arrangementApiService: ArangmantApiService
   ) {}
 
-  SaveArrangement(data: FindGroupArrModel): Observable<boolean> {
+  SaveArrangement(data: SaveModel): Observable<boolean> {
     return this.travelApiService.SaveArrangement(data);
+  }
+
+  GetMyArrangements(): Observable<Array<FindGroupArrModel>> {
+    return this.travelApiService.GetMyArrangements();
   }
 
   public GetFindPlaces(searchValue: string): Observable<TravelPlaceModel[]> {

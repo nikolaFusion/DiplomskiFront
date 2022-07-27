@@ -1,3 +1,4 @@
+import { MyArrangementsGroupComponent } from './layouts/pages/my-arrangements-group/my-arrangements-group.component';
 import { TravelPlaceInfoComponent } from './layouts/pages/common/travel-place-info/travel-place-info.component';
 import { AuthGuard } from './guards/auth.guard';
 import { TravelPlacesComponent } from './layouts/pages/common/travel-places/travel-places.component';
@@ -24,6 +25,11 @@ const routes: Routes = [
       {
         path: `${ApplicationsRoutes.TravelPlacesInfo}/:id`,
         component: TravelPlaceInfoComponent,
+      },
+      {
+        path: `${ApplicationsRoutes.MyArrangement}`,
+        component: MyArrangementsGroupComponent,
+        canActivate: [AuthGuard],
       },
       {
         path: '**',

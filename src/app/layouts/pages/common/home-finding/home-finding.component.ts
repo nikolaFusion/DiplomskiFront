@@ -55,6 +55,7 @@ export class HomeFindingComponent implements OnInit {
   }
 
   public CheckAvailability(event: TravelFindModel): void {
+    this.spinnerVisiable = true;
     event.travelPlaceList = this.travelPlaceChoiseList.map(
       (x) => x.travelPlaceID
     );
@@ -65,6 +66,7 @@ export class HomeFindingComponent implements OnInit {
       if (this.numberOfFindArr == 0) {
         this.nullList = true;
       }
+      this.spinnerVisiable = false;
     });
   }
 
