@@ -1,3 +1,4 @@
+import { InfoPopUpComponent } from './../info-pop-up/info-pop-up.component';
 import { LoginModel } from './../../../models/login-model';
 import { UserApiService } from './../../../services/api-services/user-api.service';
 import { MatDialog, MAT_DIALOG_DATA } from '@angular/material/dialog';
@@ -37,6 +38,12 @@ export class LoginPopUpComponent implements OnInit {
           window.location.reload();
         }
       }
+
+      this.dialog.open(InfoPopUpComponent, {
+        height: '200px',
+        width: '300px',
+        data: 'You have successfully login',
+      });
     });
   }
 }

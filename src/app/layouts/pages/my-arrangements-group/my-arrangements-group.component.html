@@ -1,3 +1,41 @@
-<p>
-  my-arrangements-group works!
-</p>
+<app-loader *ngIf="visiableSpinner"></app-loader>
+
+<div *ngIf="user" class="name-content">
+  <div class="name">{{ user.firstName }} {{ user.lastName }}</div>
+</div>
+
+<div class="warning-text" *ngIf="arrangementGroups.length == 0">
+  You have no arrangements booked!
+</div>
+
+<div
+  class="arrangements-group-content"
+  *ngFor="let arrangementGroup of arrangementGroups; let i = index"
+>
+  <div class="div-1">
+    <div
+      class="arrangemants-data-content"
+      *ngFor="let arrangements of arrangementGroup.arrangements; let i = index"
+    >
+      <div class="div-2">
+        <div class="title">
+          {{ i + 1 }}. {{ arrangements.travelPlace.name }}
+        </div>
+        <div class="subtitle">
+          {{ arrangements.travelPlace.country }}
+          <div class="company-name">
+            {{ arrangements.travelCompany.name }}
+          </div>
+        </div>
+      </div>
+      <div class="date-arr">
+        {{ arrangements.dateStart | date }} -
+        {{ arrangements.dateEnd | date }}
+      </div>
+    </div>
+  </div>
+  <div class="price">{{ arrangementGroup.price | number: "1.2-2" }} €</div>
+  <mat-icon class="delete-icon" (click)="deleteArrGroup(arrangementGroup)"
+    >delete_forever</mat-icon
+  >
+</div>

@@ -1,0 +1,104 @@
+@import "/src/assets/styles/variables";
+
+:host {
+    padding-top: 100px;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.arrangements-group-content {
+    margin-left: 10%;
+    margin-right: 10%;
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 30px;
+    width: 1100px;
+    margin: auto;
+    border: 1px solid $black;
+    margin-bottom: 50px;
+}
+
+.div-1 {
+    display: flex;
+    width: 700px;
+    flex-direction: column;
+    padding: 20px 50px;
+}
+
+.arrangemants-data-content:nth-child(2n-1) {
+    background-color: $addict-blue;
+}
+
+.div-2 {
+    display: flex;
+    flex-direction: column;
+}
+
+.arrangemants-data-content {
+    gap: 10px;
+    display: flex;
+    flex-direction: row;
+
+    padding: 10px;
+
+    .title {
+        font-size: 20px;
+        color: $countryTravelPlace;
+        font-weight: bold;
+    }
+    .subtitle {
+        font-size: 15px;
+        color: $countryRed;
+        margin-left: 10px;
+        display: flex;
+        font-weight: bold;
+    }
+    .company-name {
+        margin-left: 10px;
+        color: $countryRed;
+        font-weight: normal;
+    }
+}
+
+.date-arr {
+    display: flex;
+    margin: auto 0 auto auto;
+    font-size: 18px;
+}
+
+.price {
+    padding: 30px;
+    margin: auto;
+    color: $blue;
+    font-size: 50px;
+    height: 100%;
+}
+
+.name-content {
+    flex-direction: column;
+    display: flex;
+    margin-bottom: 50px;
+
+    .name {
+        font-size: 50px;
+        font-weight: bold;
+        margin: auto;
+        color: $countryTravelPlace;
+    }
+}
+
+.delete-icon {
+    color: $countryRed;
+    font-size: 60px;
+    height: 100%;
+    margin: auto -50px auto 0;
+    cursor: pointer;
+}
+
+.warning-text {
+    margin: auto;
+    color: $countryRed;
+    font-size: 30px;
+    margin-top: 200px;
+}

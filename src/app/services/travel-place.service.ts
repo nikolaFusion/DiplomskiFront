@@ -29,6 +29,10 @@ export class TravelPlaceService {
     return this.travelApiService.GetFindPlaces(searchValue);
   }
 
+  public DeleteArrGroup(id: number): Observable<boolean> {
+    return this.travelApiService.DeleteArrGroup(id);
+  }
+
   public GetByID(id: string): Observable<TravelPlaceModel> {
     return this.travelApiService.GetById(id);
   }

@@ -25,6 +25,9 @@ export class TravelPlaceApiService {
     );
   }
 
+  DeleteArrGroup(id: number): Observable<boolean> {
+    return this.http.delete<boolean>(`${this.baseUrlArrGroup}/${id}`);
+  }
   SaveArrangement(data: SaveModel): Observable<boolean> {
     return this.http.post<boolean>(`${this.baseUrlArrGroup}/save`, data);
   }
