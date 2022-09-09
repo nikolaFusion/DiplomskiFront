@@ -76,7 +76,7 @@ export class HomeFindingComponent implements OnInit {
     });
   }
 
-  public OpenRegistrationPopUp(arrGroup: FindGroupArrModel): void {
+  public OpenArrPopUp(arrGroup: FindGroupArrModel): void {
     let dialogRef = this.dialog.open(ArrangementPopUpComponent, {
       height: '800px',
       width: '1400px',

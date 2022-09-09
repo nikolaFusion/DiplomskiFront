@@ -45,6 +45,7 @@ export class ArrangementPopUpComponent implements OnInit {
       data: 'You have successfully saved the arrangement',
     });
   }
+
   Reserves() {
     this.saveMod.IDs = new Array<number>();
     this.saveMod.price = this.data.price;
