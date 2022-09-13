@@ -1,9 +1,11 @@
+import { MatDialog } from '@angular/material/dialog';
 import { pipe } from 'rxjs';
 import { TravelPlaceService } from './../../../../services/travel-place.service';
 import { TravelPlaceModel } from './../../../../models/travel-place.model';
 import { TravelPlaceApiService } from './../../../../services/api-services/travel-place-api.service';
 import { Component, OnInit } from '@angular/core';
 import { PageEvent } from '@angular/material/paginator';
+import { InfoPopUpComponent } from 'src/app/layouts/widgets/info-pop-up/info-pop-up.component';
 
 @Component({
   selector: 'app-travel-places',
@@ -20,7 +22,8 @@ export class TravelPlacesComponent implements OnInit {
 
   constructor(
     private travelPlaceApiService: TravelPlaceApiService,
-    private placeService: TravelPlaceService
+    private placeService: TravelPlaceService,
+    private dialog: MatDialog
   ) {}
 
   ngOnInit() {
@@ -37,6 +40,13 @@ export class TravelPlacesComponent implements OnInit {
       this.travelPlacesList = d;
       this.travelPlacePartList = this.travelPlacesList.slice(0, 5);
       this.numberOfPlaces = this.travelPlacesList.length;
+      if (this.numberOfPlaces == 0) {
+        this.dialog.open(InfoPopUpComponent, {
+          height: '200px',
+          width: '300px',
+          data: 'There is no matching data for the given data',
+        });
+      }
       this.spinnerVisiable = false;
     });
   }

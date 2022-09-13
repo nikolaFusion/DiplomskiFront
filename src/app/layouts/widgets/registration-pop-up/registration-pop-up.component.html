@@ -5,11 +5,19 @@
   <div class="inline-content">
     <div>
       <div class="input-title">Firstname</div>
-      <input appereance="fill" [(ngModel)]="registrationUser.firstName" />
+      <input
+        appereance="fill"
+        placeholder="Firstname"
+        [(ngModel)]="registrationUser.firstName"
+      />
     </div>
     <div>
       <div class="input-title">Lastname</div>
-      <input appereance="fill" [(ngModel)]="registrationUser.lastName" />
+      <input
+        placeholder="Lastname"
+        appereance="fill"
+        [(ngModel)]="registrationUser.lastName"
+      />
     </div>
   </div>
   <div class="input-title">Email</div>
@@ -17,6 +25,7 @@
     appereance="fill"
     class="email-content"
     type="email"
+    placeholder="E-mail"
     [(ngModel)]="registrationUser.username"
   />
   <div class="inline-content">
@@ -24,6 +33,7 @@
       <div class="input-title">Password</div>
       <input
         appereance="fill"
+        placeholder="Password"
         type="password"
         [(ngModel)]="registrationUser.password"
       />

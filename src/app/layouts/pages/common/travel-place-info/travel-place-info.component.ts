@@ -1,6 +1,6 @@
 import { ArrangemantsModel } from 'src/app/models/arrangemants.model';
 import { TravelPlaceModel } from 'src/app/models/travel-place.model';
-import { mergeMap } from 'rxjs/operators';
+import { map, mergeMap } from 'rxjs/operators';
 import { pipe } from 'rxjs';
 import { TravelPlaceService } from './../../../../services/travel-place.service';
 import { Component, OnInit } from '@angular/core';
@@ -21,6 +21,7 @@ export class TravelPlaceInfoComponent implements OnInit {
   travelPlace = new TravelPlaceModel();
   arrangementList = new Array<ArrangemantsModel>();
   spinnerVisiable = true;
+  travelArr = false;
 
   constructor(
     private route: ActivatedRoute,
@@ -35,14 +36,22 @@ export class TravelPlaceInfoComponent implements OnInit {
       this.router.navigate([ApplicationsRoutes.HomeFinding]);
     }
 
-    this.travelPlaceService.GetByID(this.id).subscribe((x) => {
-      this.travelPlace = x;
-      this.spinnerVisiable = false;
-    });
+    this.travelPlaceService.GetByID(this.id).subscribe(
+      (x) => {
+        this.travelPlace = x;
+        this.spinnerVisiable = false;
+      },
+      (err) => {
+        this.router.navigate([ApplicationsRoutes.HomeFinding]);
+      }
+    );
 
     this.travelPlaceService.GetArrangementByTPId(this.id).subscribe((x) => {
       this.arrangementList = x;
       this.spinnerVisiable = false;
+      if (x.length != 0) {
+        this.travelArr = true;
+      }
     });
   }
 }

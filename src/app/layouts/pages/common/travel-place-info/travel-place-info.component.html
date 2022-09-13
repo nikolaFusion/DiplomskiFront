@@ -8,6 +8,9 @@
     <div class="description">{{ travelPlace.description }}</div>
   </div>
 </div>
+<div class="no-arr" *ngIf="travelArr == false">
+  "There are no arrangements for the given destination"
+</div>
 <div class="arrangement-content">
   <div class="card" *ngFor="let arrangement of arrangementList">
     <img src="{{ arrangement.travelCompany.imageUrl }}" />

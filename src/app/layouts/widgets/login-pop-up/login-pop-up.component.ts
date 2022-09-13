@@ -31,6 +31,14 @@ export class LoginPopUpComponent implements OnInit {
 
   public Login(): void {
     this.userApiService.Login(this.loginUser).subscribe((d) => {
+      if (d == null) {
+        this.dialog.open(InfoPopUpComponent, {
+          height: '200px',
+          width: '300px',
+          data: 'Invalid credentials',
+        });
+        return;
+      }
       localStorage.setItem('token', d.jwtToken);
       if (d != null) {
         this.dialog.closeAll();

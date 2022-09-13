@@ -3,10 +3,19 @@
 
 <div class="log-in-content">
   <div class="input-title">Username</div>
-  <input appearance="fill" [(ngModel)]="loginUser.username" />
+  <input
+    appearance="fill"
+    placeholder="Email"
+    [(ngModel)]="loginUser.username"
+  />
 
   <div class="input-title">Password</div>
-  <input appearance="fill" [(ngModel)]="loginUser.password" type="password" />
+  <input
+    appearance="fill"
+    placeholder="Password"
+    [(ngModel)]="loginUser.password"
+    type="password"
+  />
 </div>
 
 <div class="forget-password">Forget password?</div>

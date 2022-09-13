@@ -23,14 +23,24 @@ export class RegistrationPopUpComponent implements OnInit {
 
   public Registration(): void {
     this.spinnerVisiable = true;
-    this.userApiService.Registration(this.registrationUser).subscribe((d) => {
-      this.spinnerVisiable = false;
-      this.refDialog.close();
-      this.dialog.open(InfoPopUpComponent, {
-        height: '200px',
-        width: '300px',
-        data: 'You have successfully register',
-      });
-    });
+    this.userApiService.Registration(this.registrationUser).subscribe(
+      (d) => {
+        this.spinnerVisiable = false;
+        this.refDialog.close();
+        this.dialog.open(InfoPopUpComponent, {
+          height: '200px',
+          width: '300px',
+          data: 'You have successfully register',
+        });
+      },
+      (err) => {
+        this.spinnerVisiable = false;
+        this.dialog.open(InfoPopUpComponent, {
+          height: '200px',
+          width: '300px',
+          data: 'Unsuccessfully register',
+        });
+      }
+    );
   }
 }
